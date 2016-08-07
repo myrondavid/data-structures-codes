@@ -58,3 +58,20 @@ void print_linked_list(Node *first) {
     printf("%d ", first->item);
   }
 }
+
+void order_list(Node *first){
+  Node *current = first;
+  Node *p, *q;
+  
+  for(q = current; q != NULL; q = q->next_node){
+    for(p = q->next_node; p != NULL; p = p->next_node){
+      if(p->item >= q->item){
+        Node *new_node = (Node*)malloc(sizeof(Node));
+        new_node->item = q->item;
+        new_node->next_node = q->next_node;
+        q->item = p->item;
+        p->item = new_node->item;
+      }
+    }
+  }
+}
