@@ -11,7 +11,7 @@ Queue* create_queue(){
 }
 
 int is_empty(Queue* queue){
-    return(queue->front == NULL);
+    return(queue->first == NULL);
 }
 
 void enqueue(Queue* queue, int item){
@@ -32,10 +32,10 @@ int dequeue(Queue* queue){
     if(is_empty(queue)) return -1;
 
     Node *return_top = queue->first;
-    int item = queue->front->item;
+    Queue* q = queue->first;
     queue->first = queue->first->next_node;
     free(return_top);
-    return item;
+    return q;
 }
 
 int sizeof_queue(Queue* queue){
