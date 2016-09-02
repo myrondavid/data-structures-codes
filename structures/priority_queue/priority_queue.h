@@ -21,4 +21,4 @@ int is_empty(PriorityQueue *pq);
 int maximum(PriorityQueue *pq);
 void print_prioritu_queue(PriorityQueue *pq);
 
-#endif /* STACK_H */
+#endif /* PRIORITY_QUEUE_H */
