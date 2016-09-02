@@ -10,11 +10,11 @@ Queue* create_queue(){
     return queue;
 }
 
-int is_empty(Queue *queue){
+int is_empty(Queue* queue){
     return(queue->front == NULL);
 }
 
-void enqueue(Queue *queue, int item){
+void enqueue(Queue* queue, int item){
     Node *new = (Node*) malloc(sizeof(Node));
     new->item = item;
     new->next_node = NULL;
@@ -28,7 +28,7 @@ void enqueue(Queue *queue, int item){
     queue->qnt++;
 }
 
-int dequeue(Queue *queue){
+int dequeue(Queue* queue){
     if(is_empty(queue)) return -1;
 
     Node *return_top = queue->first;
@@ -36,5 +36,19 @@ int dequeue(Queue *queue){
     queue->first = queue->first->next_node;
     free(return_top);
     return item;
+}
+
+int sizeof_queue(Queue* queue){
+    if(is_empty(queue)) return 0;
+    return queue->qnt;
+}
+
+void print_queue(Queue* queue){
+    if(is_empty(queue)) return;
+    Node node = queue->first;
+    while(node != NULL){
+        printf("%d", node->item);
+        node = node->next_node;
+    }
 }
 
