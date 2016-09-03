@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "hash_table.h"
+#include "hash_table.c"
 
 int main() {
   HashTable *ht = create_hash_table();
