@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include "binary_tree.h"
 
-struct BinaryTree {
+struct binary_tree{
     int value;
     BinaryTree *left;
     BinaryTree *right;
-}
+};
 
 int max(int a, int b){
     return (a > b) ? a : b;
@@ -49,25 +49,21 @@ BinaryTree* search(BinaryTree *bt, int value){
     }
 }
 
-int is_empty(BinaryTree *bt){
-    if(bt == NULL)
-        return 1;
-    if(*bt == NULL)
-        return 1;
-    return 0;
+int is_empty(BinaryTree *bt) {
+  return (bt == NULL);
 }
 
 void print_in_order(BinaryTree *bt){
     if (!is_empty(bt)) {
         print_in_order(bt->left);
-        printf(“%d”, bt->value);
+        printf("%d", bt->value);
         print_in_order(bt->right);
     }
 }
 
 void print_pre_order(BinaryTree *bt){
     if (!is_empty(bt)) {
-        printf(“%d”, bt->value);
+        printf("%d", bt->value);
         print_pre_order(bt->left);
         print_pre_order(bt->right);
     }
@@ -77,13 +73,13 @@ void print_post_order(BinaryTree *bt){
     if (!is_empty(bt)) {
         print_post_order(bt->left);
         print_post_order(bt->right);
-        printf(“%d”, bt->value);
+        printf("%d", bt->value);
     }
 }
 
 int height(BinaryTree *bt){
     if(bt == NULL) return -1;
-    else return 1 + max(h(bt->left), h(bt->right));
+    else return 1 + max(height(bt->left), height(bt->right));
 }
 
 void free_binary_tree(BinaryTree *bt) {
