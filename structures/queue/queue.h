@@ -17,7 +17,7 @@
 
 Queue* create_queue();
 void enqueue(Queue *queue, int item);
-Queue dequeue(Queue *queue);
+int dequeue(Queue *queue);
 int is_empty(Queue *queue);
 void print_queue(Queue* queue);
 int sizeof_queue(Queue* queue);

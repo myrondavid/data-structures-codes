@@ -2,6 +2,12 @@
 #include "util.c"
 #define MAX 10
 
+void swap(int *a, int *b) {
+  int aux = *a;
+  *a = *b;
+  *b = aux;
+}
+
 void quicksort(int *v, int size) {
   if(size <= 1) return;
 
